@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Fight Club",
+    "year": 1999,
+    "duration": "2h 18m",
+    "rating": 8.8,
+    "description": "An insomniac office worker and a devil-may-care soap maker form an underground fight club that evolves into much more.",
+    "director": "David Fincher",
+    "stars": ["Brad Pitt", "Edward Norton"],
+    "poster": "https://image.tmdb.org/t/p/w200/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg"
+  },
+  {
+    "title": "Interstellar",
+    "year": 2014,
+    "duration": "2h 49m",
+    "rating": 8.7,
+    "description": "When Earth becomes uninhabitable, a former NASA pilot is tasked to find a new planet for humans.",
+    "director": "Christopher Nolan",
+    "stars": ["Matthew McConaughey", "Anne Hathaway", "Jessica Chastain"],
+    "poster": "https://image.tmdb.org/t/p/w200/rAiYTfKGqDCRIIqo664sY9XZIvQ.jpg"
+  }
+]

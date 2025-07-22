@@ -1,26 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import './index.css';
+import './App.css';
+import './styles/watchlist.js';
 import App from './App';
-import './index.css'; // varsa
+import { BrowserRouter } from 'react-router-dom';
 
-import {ApolloProvider} from '@apollo/client';
-import client from './JMDB/services/apolloClient';
-
-
-/*const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('app'));
 root.render(
-    <React.StrictMode>
-        <ApolloProvider client={client}>
-            <App />
-        </ApolloProvider>
-    </React.StrictMode>
-);*/
-
-const root= ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-    <React.StrictMode>
-        <ApolloProvider client={client}>
-            <App />
-        </ApolloProvider>
-    </React.StrictMode>
+  <React.StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>
 );
