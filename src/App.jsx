@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from './JMDB/components/Header'; // header'ı ekliyoruz
-import CreateUserForm from '@/JMDB/services/mutations/userMut';
+import CreateUserForm from '@/JMDB/pages/createAcc/CreateAcc.jsx';
+
 
 import {
     ApolloClient,
@@ -35,11 +35,9 @@ cache: new InMemoryCache(),
 function App() {
     return (
 
-    <div>
-        <ApolloProvider client={client}></ApolloProvider>
-        <h1>Kullanıcı Oluştur</h1>
-        <CreateUserForm />
-    </div>
+        <ApolloProvider client={client}>
+            <CreateUserForm />
+        </ApolloProvider>
     );
 }
 
