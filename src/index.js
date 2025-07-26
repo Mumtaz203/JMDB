@@ -4,7 +4,7 @@ import App from './App';
 import './index.css'; // varsa
 
 import {ApolloProvider} from '@apollo/client';
-import client from './JMDB/pages/createAcc/apolloClient.js';
+import client from './JMDB/pages/apolloClient.js';
 
 
 /*const root = ReactDOM.createRoot(document.getElementById('root'));

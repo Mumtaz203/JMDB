@@ -1,5 +1,8 @@
+
+import { Routes, Route } from 'react-router-dom';
 import React from 'react';
 import CreateUserForm from '@/JMDB/pages/createAcc/CreateAcc.jsx';
+import SignIn from '@/JMDB/pages/signIn/SignIn.jsx'
 
 
 import {
@@ -34,9 +37,11 @@ cache: new InMemoryCache(),
 
 function App() {
     return (
-
         <ApolloProvider client={client}>
-            <CreateUserForm />
+            <Routes>
+                <Route path="/" element={<SignIn />} />
+                <Route path="/create-account" element={<CreateUserForm />} />
+            </Routes>
         </ApolloProvider>
     );
 }

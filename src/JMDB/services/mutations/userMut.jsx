@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { gql } from '@apollo/client';
-import client from '../../pages/createAcc/apolloClient.js';
+import client from '../../pages/apolloClient.js';
 
 const CREATE_USER = gql`
     mutation CreateUser($input: UserInput!) {
