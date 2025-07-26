@@ -1,0 +1,110 @@
+/* CreateUserForm.module.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #1A2A38;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.loginContainer {
+    width: 300px;
+    background-color: rgba(60, 83, 92, 0.6);
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    padding: 40px 30px;
+    position: relative;
+}
+
+.overlayText {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) rotate(-4deg);
+    font-size: 115px;
+    font-weight: 800;
+    color: #000000;
+    opacity: 1;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+    z-index: 1;
+    width: 100%;
+}
+
+.loginHeader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    background: linear-gradient(to right, #84EEFE, #4F8E98);
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginHeader h2 {
+    color: black;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.form {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input {
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background: linear-gradient(90deg, #A1EEF7, #64C9D4, #A1EEF7);
+    font-size: 14px;
+    color: #000;
+}
+
+.btn {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.btnSignin {
+    background: linear-gradient(90deg, #242097, #0C0A31);
+}
+
+.btnCreate {
+    background: #367F7F;
+    color: #E5F9FE;
+}
+
+.forgot {
+    text-align: center;
+    font-size: 13px;
+    color: #C0C0C0;
+    margin-top: 10px;
+}
+
+.forgot a {
+    color: #E5F9FE;
+    text-decoration: none;
+}
+
+.forgot a:hover {
+    text-decoration: underline;
+}
