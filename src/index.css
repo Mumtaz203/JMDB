@@ -1,7 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+html {
+  margin: 0;
+  padding: 0;
+  background-color: #121212;
+}
+a {
+  text-decoration: none;   /* Altı çizgiyi tamamen kaldır */
+  color: inherit;          /* Bulunduğu yerin metin rengini kullan */
+}
 
+a:hover {
+  text-decoration: none;   /* Hover durumunda da çizgi eklenmez */
+  color: black;          /* İstersen hover rengini belirle */
+}
 :root {
   --background: 0 0% 100%;
   --foreground: 222.2 47.4% 11.2%;
@@ -97,7 +110,10 @@ body {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
   font-feature-settings: "rlig" 1, "calt" 1;
-  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji",
+  -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
 }
 .hide-scrollbar::-webkit-scrollbar {
   display: none;

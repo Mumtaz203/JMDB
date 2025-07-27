@@ -1,16 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { ApolloProvider } from '@apollo/client';
+import client from './apolloClient';
 import './index.css';
 import './App.css';
-import './styles/watchlist.js';
+import './pages/WatchlistPage/styles/watchlist.js';
 import App from './App';
-import { BrowserRouter } from 'react-router-dom';
 
-const root = ReactDOM.createRoot(document.getElementById('app'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+      <ApolloProvider client={client}>
       <App />
-    </BrowserRouter>
+      </ApolloProvider>
   </React.StrictMode>
 );
