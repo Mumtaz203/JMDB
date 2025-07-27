@@ -1,0 +1,113 @@
+/* Sayfa arka plan ve ortalama */
+.createPage {
+    background-color: #0e0e0e;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+/* Ana kutu */
+.createContainer {
+    background-color: #1A2A38;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+    width: 360px;
+    max-width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 30px;
+    overflow: hidden;
+}
+
+/* Header kısmı */
+.createHeader {
+    width: 100%;
+    background: linear-gradient(to right, #84EEFE, #4F8E98);
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    padding: 25px 0;
+    text-align: center;
+}
+.logo {
+    font-size: 32px;
+    font-weight: 900;
+    color: #1A2A38;
+    margin: 0;
+}
+.title {
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    margin-top: 5px;
+}
+
+/* Form alanı */
+.createForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+    width: 80%;
+}
+
+/* Inputlar */
+.input {
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background: linear-gradient(90deg, #A1EEF7, #64C9D4, #A1EEF7);
+    font-size: 14px;
+    color: #000;
+}
+.input:focus {
+    outline: 2px solid #64C9D4;
+    background: #E5F9FE;
+}
+
+/* Buton */
+.btn {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #242097, #0C0A31);
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    transition: opacity 0.3s ease, transform 0.1s ease;
+}
+.btn:hover { opacity: 0.9; }
+.btn:active { transform: scale(0.98); }
+
+/* Forgot link */
+.forgot {
+    text-align: center;
+    font-size: 13px;
+    color: #C0C0C0;
+    margin-top: 10px;
+}
+.forgot a {
+    color: #E5F9FE;
+    text-decoration: none;
+}
+.forgot a:hover {
+    text-decoration: underline;
+}
+
+/* Hata mesajı */
+.error {
+    color: red;
+    font-size: 13px;
+    margin-top: 5px;
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .logo { font-size: 24px; }
+    .title { font-size: 18px; }
+    .createContainer { width: 90%; }
+}

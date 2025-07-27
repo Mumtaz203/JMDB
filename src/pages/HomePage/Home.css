@@ -1,0 +1,206 @@
+.home-container {
+    text-align: center;
+    padding: 20px;
+    background-color: #121212;
+    color: #fff;
+    min-height: 100vh;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Highlight genel düzen */
+.highlight-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    background-color: #1f1f1f;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 0 auto 40px;
+    gap: 20px;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+/* Sol kısım (%40) */
+.highlight-left {
+    flex: 0 0 40%;
+    max-width: 40%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Başlıklar ve yazılar */
+.welcome-title {
+    font-size: 2rem;
+    background: linear-gradient(to right, #EAE9FF, #242097);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin: 0;
+}
+
+.static-heading {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #eae9ff;
+    margin-bottom: 10px;
+}
+
+/* Poster ve metin hizalaması */
+.movie-info {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.mini-poster {
+    width: 160px;
+    height: 220px;
+    background-color: #333;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.movie-details {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.movie-title {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #9bb2d1;
+    margin: 0;
+}
+
+.movie-description {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: #ccc;
+    margin: 0;
+}
+
+/* Sağ kısım (%60) */
+.highlight-right {
+    flex: 0 0 60%;
+    max-width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Büyük görsel */
+.highlight-image {
+    width: 96%;
+    height: auto;
+    max-width: 100%;
+    aspect-ratio: 16/9;
+    background-color: #444;
+    border-radius: 15px;
+    object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.highlight-image:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 25px rgba(97, 218, 251, 0.7);
+}
+
+/* Bölüm başlıkları */
+.section-title {
+    font-size: 1.5rem;
+    margin: 30px 0 20px;
+    background: linear-gradient(to right, #EAE9FF, #242097);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* (yatay scroll) */
+.carousel-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.carousel {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 10px;
+    scrollbar-width: none;
+}
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.placeholder-box {
+    min-width: 150px;
+    height: 225px;
+    background-color: #1f1f1f;
+    border-radius: 10px;
+    flex-shrink: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+.placeholder-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(97, 218, 251, 0.7);
+}
+
+/* Kayma animasyonu (oklarla) */
+.placeholder-box.moving {
+    transform: scale(1.05);
+    opacity: 0.8;
+}
+
+/* Kaydırma butonları */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.2);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    z-index: 10;
+}
+.carousel-btn.left { left: 0; }
+.carousel-btn.right { right: 0; }
+.carousel-btn:hover {
+    background-color: rgba(97,218,251,0.8);
+}
+
+/* Responsive düzen */
+@media (max-width: 768px) {
+    .highlight-section {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .highlight-left, .highlight-right {
+        flex: 1 1 100%;
+        max-width: 100%;
+        text-align: center;
+    }
+    .movie-info {
+        justify-content: center;
+    }
+    .highlight-image {
+        aspect-ratio: auto;
+        height: 200px;
+    }
+    .carousel-btn {
+        font-size: 1.5rem;
+        padding: 6px;
+    }
+}
