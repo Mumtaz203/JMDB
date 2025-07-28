@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { WatchlistHeaderSection } from './WatchlistHeaderSection/WatchlistHeaderSection';
 import { WatchlistGroupSection } from './WatchlistGroupSection/WatchlistGroupSection';
 import { FilmListSection } from './FilmListSection/FilmListSection';
@@ -8,7 +8,24 @@ import { ExploreMoreSection } from './ExploreMoreSection/ExploreMoreSection';
 import { ExploreMoreWrapperSection } from './ExploreMoreWrapperSection/ExploreMoreWrapperSection';
 
 
-function Watchlist() {
+const Watchlist = () => {
+  const [username, setUsername] = useState(null);
+
+  useEffect(() => {
+    const savedUser = localStorage.getItem('username');
+    if (savedUser) {
+      setUsername(savedUser);
+    }
+  }, []);
+
+  if (!username) {
+    return (
+        <div className="watchlist-locked">
+          <h2>Welcome to the Watchlist</h2>
+          <p>If you want to use this page, you need to sign in first.</p>
+        </div>
+    );
+  }
   return (
     <div className="min-h-screen bg-[#1A1A1A] text-white p-4 sm:p-6 lg:p-8">
       <div className="max-w-7xl mx-auto">

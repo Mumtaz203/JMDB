@@ -1,0 +1,188 @@
+body {
+    margin: 0;
+    background: linear-gradient(180deg, #0b0b0b, #10172b);
+    color: #e6edf5;
+    font-family: Arial, sans-serif;
+}
+
+.details-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Ana içerik 3 kolon */
+.details-main {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+/* Poster Alanı */
+.poster-area {
+    flex: 0 0 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.poster-placeholder {
+    width: 200px;
+    height: 300px;
+    background: #1e243a;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9aa2b8;
+    font-size: 1rem;
+}
+
+/* Orta Bilgi Alanı */
+.info-area {
+    flex: 1 1 55%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.movie-title {
+    font-size: 2rem;
+    color: #ffffff;
+    margin: 0;
+}
+
+.movie-summary {
+    line-height: 1.6;
+    color: #cfd8e3;
+}
+
+.movie-director {
+    color: #9bb7e0;
+    font-size: 1rem;
+}
+
+.rating-bar {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.score {
+    font-size: 1.4rem;
+    color: #f5d142;
+}
+
+/* Cast Alanı */
+.cast-area {
+    flex: 0 0 20%;
+    background: #141b30;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.cast-area ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cast-area li {
+    padding: 5px 0;
+    border-bottom: 1px solid #2a3355;
+}
+
+.see-more {
+    display: block;
+    margin-top: 10px;
+    color: #5aaaff;
+    text-decoration: none;
+}
+
+/* Butonlar */
+.btn {
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+    font-size: 0.9rem;
+}
+
+.btn.primary {
+    background: #2b7bff;
+    color: #fff;
+}
+
+.btn.secondary {
+    background: #2c2c2c;
+    color: #fff;
+}
+
+.btn.rate {
+    background: #5d6ff7;
+    color: #fff;
+}
+
+/* Reviews */
+.reviews-section h2 {
+    margin-top: 20px;
+}
+
+.reviews-scroll {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+}
+
+.review-card {
+    background: #1f2944;
+    padding: 10px;
+    min-width: 200px;
+    border-radius: 8px;
+}
+
+/* Related Movies */
+.related-section {
+    margin-top: 35px;
+}
+
+.related-scroll {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+}
+
+.related-card {
+    background: #1e243a;
+    min-width: 150px;
+    height: 220px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #bfc6db;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .details-main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .poster-area, .info-area, .cast-area {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .poster-placeholder {
+        width: 60%;
+        height: 300px;
+    }
+
+    .cast-area {
+        margin-top: 20px;
+    }
+}

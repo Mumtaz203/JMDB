@@ -1,8 +1,9 @@
 import { ApolloClient, InMemoryCache, HttpLink } from '@apollo/client';
+import { API_BASE_URL } from './config';
 
 const client = new ApolloClient({
     link: new HttpLink({
-        uri: '/graphql',   // Proxy burayı otomatik backend’e yönlendirir
+        uri: API_BASE_URL,
     }),
     cache: new InMemoryCache(),
 });

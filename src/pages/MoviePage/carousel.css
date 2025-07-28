@@ -1,0 +1,42 @@
+.review-card {
+    transition: transform 1s ease, opacity 1s ease;
+}
+
+.review-card:hover {
+    transform: scale(1.05);
+}
+
+/* Kayma yönüne göre animasyonlar */
+.slide-in {
+    opacity: 0;
+    transform: translateX(50px);
+    animation: slideIn 1s ease forwards;
+}
+
+.slide-out {
+    opacity: 1;
+    transform: translateX(0);
+    animation: slideOut 1s ease forwards;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOut {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+}
