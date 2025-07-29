@@ -4,19 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e42d117-31ba-4a85-9589-df56dea2679d" name="Changes" comment="Homepage and new Configurations added, Sign in and Create Account pages arranged" />
+    <list default="true" id="7a9369f5-8e04-43cc-9837-a042a68731bb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/public/images/AngryMan.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/TheMatrix.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apolloClient.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/apolloClient.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/HomePage/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/HomePage/Home.jsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="JavaScript File" />
-        <option value="JSX File" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -26,136 +25,76 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;erkinck&quot;
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Mumtaz203"
   }
-}</component>
-  <component name="GithubDefaultAccount">
-    <option name="defaultAccountId" value="1c5ffc47-573e-4d3f-9690-9650155d77c7" />
-  </component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Mumtaz203/JMDB.git&quot;,
-    &quot;accountId&quot;: &quot;1c5ffc47-573e-4d3f-9690-9650155d77c7&quot;
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Mumtaz203/JMDB.git",
+    "accountId": "5e27c1aa-849b-4e51-96ce-3b54dc4f5c92"
   }
-}</component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
-  </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 8
-}</component>
-  <component name="ProjectId" id="30JgIz3VP7xYk1crV8vPoUXXP2Y" />
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 6
+}]]></component>
+  <component name="ProjectId" id="30TbGwJtInPRwpl8ddBFUvvqgFK" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;homepage-and-new-configurations&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/WebstormProjects/JMDB/src&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Node.js.Home.jsx.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "homepage-and-new-configurations",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "ts.external.directory.path": "/Applications/IntelliJ IDEA.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\User\WebstormProjects\JMDB\src" />
-      <recent name="C:\Users\User\WebstormProjects\JMDB\src\components" />
-      <recent name="C:\Users\User\WebstormProjects\JMDB\src\pages\MoviePage" />
-      <recent name="C:\Users\User\WebstormProjects\JMDB\src\pages\CreateAccPage" />
-      <recent name="C:\Users\User\WebstormProjects\JMDB\src\pages\Actor\ActressesPage" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\User\WebstormProjects\JMDB\src\pages" />
-      <recent name="C:\Users\User\WebstormProjects\JMDB\src\pages\SignInPage" />
-      <recent name="C:\Users\User\WebstormProjects\JMDB\src\pages\WatchlistPage" />
+      <recent name="$PROJECT_DIR$/public/images" />
+      <recent name="$PROJECT_DIR$/public/images/MovieImages/KungFuPanda" />
+      <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-WS-251.27812.50" />
+        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.23654.153" />
+        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-IU-243.23654.153" />
       </set>
     </attachedChunks>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="0e42d117-31ba-4a85-9589-df56dea2679d" name="Changes" comment="" />
-      <created>1753351014137</created>
+      <changelist id="7a9369f5-8e04-43cc-9837-a042a68731bb" name="Changes" comment="" />
+      <created>1753654417154</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1753351014137</updated>
-      <workItem from="1753351015316" duration="99000" />
-      <workItem from="1753351132002" duration="2715000" />
-      <workItem from="1753354436735" duration="433000" />
-      <workItem from="1753354955774" duration="2357000" />
-      <workItem from="1753357345230" duration="707000" />
-      <workItem from="1753373171723" duration="18000" />
-      <workItem from="1753373743191" duration="240000" />
-      <workItem from="1753566891820" duration="2178000" />
-      <workItem from="1753569361953" duration="78000" />
-      <workItem from="1753571516399" duration="2245000" />
-      <workItem from="1753577773112" duration="2690000" />
-      <workItem from="1753615333023" duration="14000" />
-      <workItem from="1753621316530" duration="773000" />
-      <workItem from="1753625412565" duration="1293000" />
-      <workItem from="1753626740454" duration="960000" />
-      <workItem from="1753627727211" duration="867000" />
-      <workItem from="1753629055316" duration="5049000" />
-      <workItem from="1753650752126" duration="4146000" />
-      <workItem from="1753655010158" duration="293000" />
+      <updated>1753654417154</updated>
+      <workItem from="1753654418301" duration="18362000" />
     </task>
-    <task id="LOCAL-00001" summary="Homepage and new Configurations added, Sign in and Create Account pages arranged">
-      <option name="closed" value="true" />
-      <created>1753652870536</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1753652870536</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Homepage and new Configurations added, Sign in and Create Account pages arranged" />
-    <option name="LAST_COMMIT_MESSAGE" value="Homepage and new Configurations added, Sign in and Create Account pages arranged" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/JMDB/pages/createAcc/CreateAcc.jsx</url>
-          <line>2</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="com.apollographql.ijplugin.settings.ProjectSettingsState">
+    <option name="hasEnabledGraphQLPluginApolloKotlinSupport" value="true" />
+    <option name="lspPassPathToSuperGraphYaml" value="false" />
+    <option name="telemetryInstanceId" value="8f73db2c-afe9-4913-87a4-98daabcbefea" />
   </component>
 </project>
