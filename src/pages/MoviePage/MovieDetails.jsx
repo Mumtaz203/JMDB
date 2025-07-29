@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { gql, useQuery, useMutation } from '@apollo/client';
 import { Star } from 'lucide-react';
@@ -6,66 +6,78 @@ import ReviewsCarousel from './ReviewsCarousel';
 import '../../pages/MoviePage/MovieDetailsPage.css';
 import RatingForm from '../../components/RatingForm';
 
+// GraphQL Sorguları ve Mutasyonları
 const GET_MOVIE_DETAILS = gql`
-  query GetMovie($id: Int!) {
-    getMovie(id: $id) {
-      id
-      title
-      releaseDate
-      genre
-      description
-      directorId
+    query GetMovie($id: Int!) {
+        getMovie(id: $id) {
+            id
+            title
+            releaseDate
+            genre
+            description
+            directorId
+            # Eğer posterUrl backend'den geliyorsa buraya ekleyin
+            # posterUrl
+        }
     }
-  }
 `;
 
 const GET_ACTORS_IN_MOVIE = gql`
-  query ShowAllActorsInMovie($movieId: Int!) {
-    showAllActorsInMovie(movieId: $movieId) {
-      id
-      name
-      birthDate
+    query ShowAllActorsInMovie($movieId: Int!) {
+        showAllActorsInMovie(movieId: $movieId) {
+            id
+            name
+            birthDate
+        }
     }
-  }
 `;
 
 const GET_MOVIE_AVERAGE_RANKING = gql`
-  query FindAverageRankingInMovie($movieId: Int!) {
-    findAverageRankingInMovie(movieId: $movieId)
-  }
+    query FindAverageRankingInMovie($movieId: Int!) {
+        findAverageRankingInMovie(movieId: $movieId)
+    }
 `;
 
 const GET_REVIEWS_IN_MOVIE = gql`
-  query ShowAllReviewsInMovie($movieId: Int!) {
-    showAllReviewsInMovie(movieId: $movieId) {
-      id
-      rating
-      comment
-      movieId
-      userId
+    query ShowAllReviewsInMovie($movieId: Int!) {
+        showAllReviewsInMovie(movieId: $movieId) {
+            id
+            rating
+            comment
+            movieId
+            userId
+        }
     }
-  }
 `;
 
 const GET_DIRECTOR_DETAILS = gql`
-  query GetDirector($id: Int!) {
-    getDirector(id: $id) {
-      id
-      name
+    query GetDirector($id: Int!) {
+        getDirector(id: $id) {
+            id
+            name
+        }
     }
-  }
 `;
 
 const ADD_REVIEW = gql`
-  mutation CreateReview($input: ReviewInput!) {
-    createReview(input: $input) {
-      id
-      rating
-      comment
-      movieId
-      userId
+    mutation CreateReview($input: ReviewInput!) {
+        createReview(input: $input) {
+            id
+            rating
+            comment
+            movieId
+            userId
+        }
     }
-  }
+`;
+
+// Watchlist'e ekleme mutasyonu
+const ADD_TO_WATCHLIST_MUTATION = gql`
+    mutation AddToWatchlist($userId: Int!, $movieId: Int!) {
+        addMovieToWatchList(userId: $userId, movieId: $movieId) {
+            id # WatchList'e eklenen filmin ID'si veya backend'inizin döndürdüğü herhangi bir alan
+        }
+    }
 `;
 
 const CastCard = ({ actor }) => {
@@ -94,7 +106,29 @@ function MovieDetails() {
     const movieId = parseInt(id);
     const navigate = useNavigate();
     const [showRatingModal, setShowRatingModal] = useState(false);
+    const [userId, setUserId] = useState(null);
+    // Mesaj state'i eklendi
+    const [message, setMessage] = useState({ text: '', type: '' }); // type: 'success', 'error', 'info'
 
+    // Kullanıcı ID'sini localStorage'dan çekme
+    useEffect(() => {
+        const savedUserId = localStorage.getItem('userId');
+        if (savedUserId) {
+            setUserId(parseInt(savedUserId));
+        }
+    }, []);
+
+    // Mesajları otomatik kapatmak için useEffect
+    useEffect(() => {
+        if (message.text) {
+            const timer = setTimeout(() => {
+                setMessage({ text: '', type: '' });
+            }, 3000); // 3 saniye sonra mesajı kapat
+            return () => clearTimeout(timer);
+        }
+    }, [message]);
+
+    // GraphQL Sorguları
     const { loading: movieLoading, error: movieError, data: movieData } = useQuery(GET_MOVIE_DETAILS, {
         variables: { id: movieId },
         fetchPolicy: "network-only"
@@ -124,12 +158,34 @@ function MovieDetails() {
         fetchPolicy: "network-only"
     });
 
+    // GraphQL Mutasyonları
     const [createReviewMutation] = useMutation(ADD_REVIEW);
 
-    const handleRatingSubmit = async (rating, comment) => {
-        const userId = parseInt(localStorage.getItem('userId'));
+    // Watchlist'e ekleme mutasyonu ve loading state'i
+    const [addMovie, { loading: addingToWatchlist }] = useMutation(ADD_TO_WATCHLIST_MUTATION, {
+        onCompleted: (data) => {
+            const success = data.addMovieToWatchList?.id || data.addMovieToWatchList === true;
+            if (success) {
+                setMessage({ text: 'Film izleme listenize başarıyla eklendi!', type: 'success' });
+            } else {
+                setMessage({ text: 'Film izleme listesine eklenirken bir sorun oluştu.', type: 'error' });
+            }
+        },
+        onError: (error) => {
+            console.error("Watchlist'e eklerken hata:", error);
+            if (error.message.includes("already in watchlist")) {
+                setMessage({ text: 'Bu film zaten izleme listenizde!', type: 'info' });
+            } else {
+                setMessage({ text: `Filmi eklerken hata: ${error.message}`, type: 'error' });
+            }
+        }
+    });
 
-        if (!userId) {
+    // Fonksiyonlar
+    const handleRatingSubmit = async (rating, comment) => {
+        const currentUserId = parseInt(localStorage.getItem('userId'));
+
+        if (!currentUserId) {
             alert("You must be signed in to leave a review.");
             navigate('/signin');
             return;
@@ -140,7 +196,7 @@ function MovieDetails() {
                 variables: {
                     input: {
                         movieId: movieId,
-                        userId: userId,
+                        userId: currentUserId,
                         rating: rating,
                         comment: comment || ""
                     }
@@ -174,6 +230,23 @@ function MovieDetails() {
         navigate(`/movie/${id}`);
     };
 
+    // "Add to Watchlist" butonuna tıklama handler'ı
+    const handleAddToWatchlist = async () => {
+        const currentUserId = parseInt(localStorage.getItem('userId'));
+
+        if (currentUserId === null || isNaN(currentUserId)) {
+            setMessage({ text: 'Lütfen filmi izleme listenize eklemek için giriş yapın.', type: 'info' });
+            return;
+        }
+        if (isNaN(movieId)) {
+            setMessage({ text: 'Geçersiz film ID.', type: 'error' });
+            return;
+        }
+
+        await addMovie({ variables: { userId: currentUserId, movieId: movieId } });
+    };
+
+    // Loading ve Error Durumları
     if (movieLoading || actorsLoading || ratingLoading || reviewsLoading || directorLoading) {
         return <div className="text-center mt-20 text-xl">Loading...</div>;
     }
@@ -186,6 +259,7 @@ function MovieDetails() {
         return <div className="text-center mt-20 text-xl">Movie not found. Please enter a valid movie ID.</div>;
     }
 
+    // Veri Atamaları
     const movie = movieData.getMovie;
     const actors = actorsData?.showAllActorsInMovie || [];
     const averageRating = ratingData?.findAverageRankingInMovie;
@@ -197,6 +271,17 @@ function MovieDetails() {
     return (
         <div className="movie-details-page-container">
             <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+                {/* Mesaj Kutusu */}
+                {message.text && (
+                    <div className={`mb-4 p-3 rounded-lg text-center font-bold
+                        ${message.type === 'success' ? 'bg-green-500 text-white' : ''}
+                        ${message.type === 'error' ? 'bg-red-500 text-white' : ''}
+                        ${message.type === 'info' ? 'bg-blue-500 text-white' : ''}
+                    `}>
+                        {message.text}
+                    </div>
+                )}
+
                 <div className="flex flex-col lg:flex-row gap-8 mb-12 items-start">
                     <div className="poster-area">
                         <div className="relative w-full max-w-[300px] lg:max-w-full rounded-lg shadow-lg overflow-hidden">
@@ -208,10 +293,16 @@ function MovieDetails() {
                             />
                         </div>
                         <div className="flex flex-col gap-3 w-full max-w-[300px] lg:max-w-full mt-4">
-                            <button className="flex items-center justify-center bg-[#3abdff] text-white px-4 py-2 rounded-lg font-semibold hover:bg-[#4eb0e6] transition-colors" onClick={() => alert("Watchlist feature is currently unavailable.")}>
+                            {/* ADD TO WATCHLIST BUTONU */}
+                            <button
+                                className="flex items-center justify-center bg-[#3abdff] text-white px-4 py-2 rounded-lg font-semibold hover:bg-[#4eb0e6] transition-colors"
+                                onClick={handleAddToWatchlist}
+                                disabled={userId === null || isNaN(movieId) || addingToWatchlist}
+                            >
                                 <img src="/images/icons/add-icon.svg" alt="Add to Watchlist" className="w-5 h-5 mr-2" onError={(e) => { e.target.onerror = null; e.target.src = "/images/icons/add-icon.svg"; }} />
-                                Add to Watchlist
+                                {addingToWatchlist ? 'Ekleniyor...' : 'Add to Watchlist'}
                             </button>
+                            {/* MARK AS WATCHED BUTONU (Değişmedi) */}
                             <button className="flex items-center justify-center bg-gray-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-gray-700 transition-colors" onClick={() => alert("Watched feature is currently unavailable.")}>
                                 <img src="/images/icons/watched-icon.svg" alt="Mark as watched" className="w-5 h-5 mr-2" onError={(e) => { e.target.onerror = null; e.target.src = "/images/icons/watched-icon.svg"; }} />
                                 Mark as watched

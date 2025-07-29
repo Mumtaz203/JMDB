@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const MovieCard = ({ movie }) => {
   const renderStars = () => {
@@ -22,7 +23,7 @@ const MovieCard = ({ movie }) => {
   };
 
   return (
-    // Film kartları arasında boşluk bırakmak için mb-4
+    
     <div className="bg-[#2A2A2A] p-4 rounded-lg shadow-xl flex flex-col sm:flex-row items-start gap-4 mb-4 relative">
       {/* Movie Poster */}
       <div className="flex-shrink-0 w-full sm:w-auto">
@@ -47,6 +48,7 @@ const MovieCard = ({ movie }) => {
             </p>
           </div>
           <div className="w-6 h-6 flex-shrink-0">
+            <Link to={`/movie/${movie.id}`}>
             {/* "More options" ikonu için placeholder.*/}
             <img 
               className="w-5 h-5 cursor-pointer" 
@@ -54,26 +56,28 @@ const MovieCard = ({ movie }) => {
               src="/images/icons/more-options.svg"
               onError={(e) => { e.target.onerror = null; e.target.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="; }}
             />
+            </Link>
           </div>
         </div>
 
         {/* Rating and Actions */}
-        <div className="flex flex-wrap items-center mt-4 sm:mt-6 gap-3 sm:gap-4">
-          {/* Rating */}
-          <div className="flex items-center">
-            <div className="w-5 h-5 mr-1 flex items-center justify-center">
-              {/* Yıldız ikonu için placeholder. */}
-              <img 
+       <div className="flex flex-wrap items-center mt-4 sm:mt-6 gap-3 sm:gap-4">
+    {/* Rating */}
+    <div className="flex items-center">
+        <div className="w-5 h-5 mr-1 flex items-center justify-center">
+            {/* Yıldız ikonu için placeholder. */}
+            <img 
                 className="w-[17px] h-4" 
                 alt="StarIcon rating" 
                 src="/images/icons/star-icon.svg" 
                 onError={(e) => { e.target.onerror = null; e.target.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="; }}
-              />
-            </div>
-            <span className="font-extrabold text-[#d2f1ff] text-[13px] [font-family:'Montserrat',Helvetica] tracking-[0] leading-[normal]">
-              {movie.rating}
-            </span>
-          </div>
+            />
+        </div>
+        <span className="font-extrabold text-[#d2f1ff] text-[13px] [font-family:'Montserrat',Helvetica] tracking-[0] leading-[normal]">
+            {/* BURAYI DÜZELTİYORUZ */}
+            {movie.averageRanking ? `${movie.averageRanking.toFixed(1)}` : 'N/A'} 
+        </span>
+    </div>
 
           {/* Rate Button */}
           {}
@@ -84,11 +88,11 @@ const MovieCard = ({ movie }) => {
             Rate
           </button>
 
-          {/* Add List Button */}
+          {/* Add List Button 
           {}
           <div className="flex items-center">
             <div className="w-5 h-5 mr-1 flex items-center justify-center overflow-hidden">
-              {/* Artı ikonu için placeholder. */}
+              
               <img 
                 className="w-3 h-3 mt-1 ml-1" 
                 alt="Add list icon" 
@@ -103,6 +107,8 @@ const MovieCard = ({ movie }) => {
               Add List
             </button>
           </div>
+
+          */}
 
           {/* Remove Button */}
           {}
@@ -136,13 +142,26 @@ const MovieCard = ({ movie }) => {
             Director&nbsp;&nbsp;&nbsp;&nbsp;{" "}
           </span>
           <span className="text-[#3abdff] underline">
-            {movie.director}
+            {movie.directorName}
           </span>
-          <span className="font-extrabold text-white">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Stars&nbsp;&nbsp;&nbsp;&nbsp;
-          </span>
-          <span className="font-extrabold text-[#3abdff]">&nbsp;</span>
-          {renderStars()}
+
+            {movie.actors && Array.isArray(movie.actors) && movie.actors.length > 0 ? (
+                       
+                       movie.actors.map((actor, index) => (
+
+                            <React.Fragment key={actor.id || index}>
+                                
+                                <span className="font-extrabold text-[#3abdff]">
+                                    {actor.name}
+                                </span>
+                                {index < movie.actors.length - 1 && (
+                                    <span className="font-extrabold text-[#3abdff]">&nbsp;&nbsp;</span>
+                                )}
+                            </React.Fragment>
+                        ))
+                    ) : (
+                        <span className="font-extrabold text-[#3abdff]">N/A</span> 
+                    )}
         </div>
       </div>
     </div>
