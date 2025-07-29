@@ -1,0 +1,74 @@
+.actors-page {
+    background-color: #0d0d0d;
+    min-height: 100vh;
+    padding: 2rem;
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+.actors-title {
+    text-align: center;
+    background: linear-gradient(to right, #EAE9FF, #242097);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.actors-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    gap: 1rem;
+}
+
+.actors-controls input {
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    border: none;
+    width: 100%;
+    max-width: 300px;
+}
+
+.actors-controls button {
+    padding: 0.5rem 1.2rem;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.actors-controls button:hover {
+    background-color: #555;
+}
+
+.actors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.actor-card {
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    cursor: default;
+}
+
+.actor-card:hover {
+    transform: translateY(-5px);
+    background-color: #262626;
+}
+
+.actor-card h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #f5f5f5;
+}

@@ -6,6 +6,7 @@ import MovieDetails from "./pages/MoviePage/MovieDetails";
 import SignInPage from "./pages/SignInPage/SignInPage";
 import Watchlist from "./pages/WatchlistPage/Watchlist";
 import CreateAcc from "./pages/CreateAccPage/CreateAcc";
+import FilteredMovies from "./pages/FilteredPage/FilteredMovies";
 
 function Layout() {
     const location = useLocation();
@@ -24,6 +25,7 @@ function Layout() {
                     <Route path="/signin" element={<SignInPage />} />
                     <Route path="/watchlist" element={<Watchlist />} />
                     <Route path="/createacc" element={<CreateAcc />} />
+                    <Route path="/filtered" element={<FilteredMovies />} />
                 </Routes>
             </div>
         </>

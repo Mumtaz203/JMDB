@@ -1,150 +1,151 @@
-/* Sayfanın arka planı ve ortalanması */
 .authPage {
-    background-color: #0e0e0e;
+    background-color: #1A2A38; /* Sayfa arka planı */
     min-height: 100vh;
+    min-width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: Arial, sans-serif;
-    position: relative;
-    overflow: hidden;
 }
 
-/* Dev JMDB overlay */
-.authPage::before {
+/* Ortadaki kutu */
+.authContainer {
+    background-color: rgba(60, 83, 92, 0.6);
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    width: 380px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden; /* header yuvarlatılmış kenarlarla birleşsin */
+}
+
+/* Üst header kısmı (mavi-turkuaz gradient) */
+.authHeader {
+    position: relative;
+    width: 100%;
+    height: 120px;
+    background: linear-gradient(to right, #84EEFE, #4F8E98);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    overflow: hidden;
+    border-top: 2px solid #000000;
+    border-bottom: 2px solid #000000;
+}
+
+/* JMDB overlay (sadece header içinde görünsün) */
+.authHeader::before {
     content: "JMDB";
     position: absolute;
-    top: 3%;/* Yazıyı kutunun üst kısmına taşır */
     left: 50%;
     transform: translateX(-50%) rotate(-4deg);
-    font-size: clamp(4rem, 12vw, 8rem);
-    /* Ekran boyutuna göre otomatik ölçeklenir:
-       min 4rem, ortalama 12vw (ekran genişliği), max 10rem */
-
-    font-weight: 900; /* Daha yumuşak */
+    font-size: 7rem;
+    font-weight: 800;
+    color: #000000;
+    opacity: 0.9;
     mix-blend-mode: overlay;
-    z-index: 4;
     pointer-events: none;
 }
 
-/* Form Kutusu (Container) */
-.authContainer {
-    z-index: 3;
-    background-color: rgba(60, 81, 92, 0.6);
-    border-radius: 12px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.5);
-    width: 400px;
-    max-width: 90%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: 20px;
-    overflow: hidden;
-}
-
-/* Header */
-.authHeader {
-    width: 100%;
-    background: linear-gradient(to right, #7CF3FF, #4F8E98);
-    text-align: center;
-    padding: 30px 0 30px; /* Küçültülmüş padding */
-    z-index: 5;
-}
-.title {
-    font-size: 28px;
+/* Sign In yazısı */
+.authHeader .title {
+    color: #000;
+    font-size: 1.8rem;
     font-weight: bold;
-    color: #E5F9FE;
+    z-index: 2;
 }
 
-/* Form Alanı */
+/* Form alanı (kutunun alt kısmı) */
 .authForm {
+    padding: 30px;
     display: flex;
     flex-direction: column;
-    gap: 18px;
-    margin-top: 30px;
-    width: 80%;
+    gap: 15px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* Inputlar */
-.input {
-    padding: 14px;
+.authForm .input {
+    padding: 12px;
     border-radius: 8px;
-    border: none;
     background: linear-gradient(90deg, #A1EEF7, #64C9D4, #A1EEF7);
-    font-size: 15px;
+    font-size: 1rem;
     color: #000;
+    outline: none;
+    border-top: #1f1f1f solid 2px ;
+    border-bottom: #1f1f1f solid 2px ;
 }
-.input:focus {
-    outline: 2px solid #64C9D4;
-    background: #E5F9FE;
+
+.authForm .input::placeholder {
+    color: #1f1f1f;
+}
+
+.authForm .input:focus {
+    background: linear-gradient(90deg, #A1EEF7, #64C9D4, #A1EEF7); /* Degrade koru */
+    outline: none;                      /* Varsayılan mavi/white çerçeveyi kaldırır */
+    border: 2px solid #E5F9FE;          /* Kendi odak (focus) kenarlığını ekler */
+    box-shadow: 0 0 8px rgba(229,249,254,0.6); /* Hafif parlama efekti */
 }
 
 /* Butonlar */
+.btn {
+    margin: 0 auto;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    width: 80%;
+    transition: opacity 0.3s ease, transform 0.2s ease;
+}
+
+/* Sign In (mor ton) */
 .btnSignin {
     background: linear-gradient(90deg, #242097, #0C0A31);
+    color: #fff;
+    border-bottom: black 2px solid !important;
 }
+
+.btnSignin:hover {
+    opacity: 0.9;
+    transform: scale(1.03);
+}
+
+/* Create Account (yeşil ton) */
 .btnCreate {
-    background: linear-gradient(90deg, #1C63B8, #0A2F73);
-}
-.btn:hover { opacity: 0.9; }
-.btn:active { transform: scale(0.98); }
-
-/* "or" Ayırıcı */
-.or-divider {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: rgba(255,255,255,0.6);
-    font-size: 0.9rem;
-    margin: 10px 0;
-    width: 100%;
-}
-.or-divider::before,
-.or-divider::after {
-    content: "";
-    flex: 1;
-    height: 1px;
-    background: rgba(255,255,255,0.2);
-    margin: 0 8px;
+    background: #367F7F;
+    color: #ffffff;
+    border-bottom: black 2px solid !important;
 }
 
-/* Forgot Link */
+.btnCreate:hover {
+    opacity: 0.9;
+    transform: scale(1.03);
+}
+
+/* Forgot password */
 .forgot {
     text-align: center;
-    font-size: 13px;
+    font-size: 0.9rem;
     color: #C0C0C0;
-    margin-top: 12px;
+    margin-top: 10px;
 }
+
 .forgot a {
     color: #E5F9FE;
     text-decoration: none;
 }
+
 .forgot a:hover {
     text-decoration: underline;
 }
 
-/* Hata Mesajı */
-.error {
-    color: red;
-    font-size: 13px;
-    margin-top: 5px;
+.or-divider {
     text-align: center;
-}
-
-/* Responsive (Mobil ve küçük ekranlar için) */
-@media (max-width: 600px) {
-    .authPage::before {
-        font-size: clamp(3rem, 18vw, 5rem);
-        top: -2%; /* Mobilde daha yukarı taşır */
-    }
-    .authHeader {
-        padding: 20px 0 20px; /* Daha az yer kaplar */
-    }
-    .title {
-        font-size: 20px;
-    }
-    .authContainer {
-        width: 95%;
-        padding: 15px;
-    }
+    font-size: 12px;      /* Yazıyı büyüttük */ /* Daha kalın görünüm */
+    color: #ffffff;         /* Beyaz renk */ /* Harfler arası biraz boşluk */
 }

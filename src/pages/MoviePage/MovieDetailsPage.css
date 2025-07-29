@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    background: linear-gradient(180deg, #0b0b0b, #10172b);
+    background: #0b0b0b;
     color: #e6edf5;
     font-family: Arial, sans-serif;
 }
@@ -27,11 +27,17 @@ body {
     gap: 12px;
 }
 
+/* Poster ve placeholder için sabit boyut */
+.poster-area img,
 .poster-placeholder {
     width: 200px;
     height: 300px;
-    background: #1e243a;
+    object-fit: cover;
     border-radius: 12px;
+}
+
+.poster-placeholder {
+    background: #1e243a;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -49,7 +55,9 @@ body {
 
 .movie-title {
     font-size: 2rem;
-    color: #ffffff;
+    background: linear-gradient(to right, #EAE9FF, #242097);
+    -webkit-background-clip: text;
+    background-clip: text;
     margin: 0;
 }
 
@@ -64,6 +72,7 @@ body {
 }
 
 .rating-bar {
+
     display: flex;
     align-items: center;
     gap: 15px;
@@ -71,7 +80,7 @@ body {
 
 .score {
     font-size: 1.4rem;
-    color: #f5d142;
+    color: #9aa2b8;
 }
 
 /* Cast Alanı */
@@ -120,8 +129,9 @@ body {
 }
 
 .btn.rate {
-    background: #5d6ff7;
-    color: #fff;
+    margin-right: auto;
+    width: 200px;
+    border-radius: 20px;
 }
 
 /* Reviews */
@@ -132,12 +142,18 @@ body {
 .reviews-scroll {
     display: flex;
     gap: 12px;
-    overflow-x: auto;
+    overflow-x: auto; /* hidden yerine auto (flicker engel) */
     padding-bottom: 8px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.reviews-scroll::-webkit-scrollbar {
+    display: none;
 }
 
 .review-card {
-    background: #1f2944;
+    background: linear-gradient(to bottom, #EAE9FF, #242097);
     padding: 10px;
     min-width: 200px;
     border-radius: 8px;
@@ -165,6 +181,30 @@ body {
     color: #bfc6db;
 }
 
+/* İkonların yüklenmese bile sabit boyut koruması */
+button img.w-5,
+button img.w-6 {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    object-fit: contain;
+}
+
+/* Rate butonu ve diğer butonların iç hizalamasını sabitle */
+.btn.rate,
+button.flex.items-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    gap: 8px;
+}
+
+/* Boş ikon için şeffaf bir placeholder görünümü */
+button img[alt=""] {
+    background-color: transparent;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .details-main {
@@ -172,11 +212,14 @@ body {
         align-items: center;
     }
 
-    .poster-area, .info-area, .cast-area {
+    .poster-area,
+    .info-area,
+    .cast-area {
         flex: 1 1 100%;
         max-width: 100%;
     }
 
+    .poster-area img,
     .poster-placeholder {
         width: 60%;
         height: 300px;

@@ -1,28 +1,24 @@
-.review-card {
-    transition: transform 1s ease, opacity 1s ease;
+.carousel-slide-in-left {
+    animation: slideInLeft 0.5s ease-out forwards;
 }
 
-.review-card:hover {
-    transform: scale(1.05);
+.carousel-slide-out-left {
+    animation: slideOutLeft 0.5s ease-in forwards;
 }
 
-/* Kayma yönüne göre animasyonlar */
-.slide-in {
-    opacity: 0;
-    transform: translateX(50px);
-    animation: slideIn 1s ease forwards;
+.carousel-slide-in-right {
+    animation: slideInRight 0.5s ease-out forwards;
 }
 
-.slide-out {
-    opacity: 1;
-    transform: translateX(0);
-    animation: slideOut 1s ease forwards;
+.carousel-slide-out-right {
+    animation: slideOutRight 0.5s ease-in forwards;
 }
 
-@keyframes slideIn {
+/* Slide in/out animasyonları */
+@keyframes slideInLeft {
     from {
         opacity: 0;
-        transform: translateX(50px);
+        transform: translateX(-100%);
     }
     to {
         opacity: 1;
@@ -30,13 +26,48 @@
     }
 }
 
-@keyframes slideOut {
+@keyframes slideOutLeft {
     from {
         opacity: 1;
         transform: translateX(0);
     }
     to {
         opacity: 0;
-        transform: translateX(-50px);
+        transform: translateX(-20%); /* -100 yerine -20 ile kaybolma yumuşatıldı */
+        pointer-events: none;
     }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(20%); /* 100 yerine 20 ile daha yumuşak kaybolma */
+        pointer-events: none;
+    }
+}
+
+/* Scrollbar gizle ve kaybolma engelle */
+.reviews-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.reviews-scroll {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow-x: auto; /* hidden yerine auto, içerik kaybolmasın */
 }

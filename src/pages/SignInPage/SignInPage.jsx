@@ -13,6 +13,15 @@ const LOGIN_USER = gql`
     }
 `;
 
+const GET_USER = gql`
+    query GetUser($id: Int!) {
+        getUser(id: $id) {
+            id
+            username
+        }
+    }
+`;
+
 const SignIn = () => {
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
@@ -30,7 +39,19 @@ const SignIn = () => {
             const loginData = result.data.login;
 
             if (loginData.success) {
-                localStorage.setItem('username', email);
+                const userId = loginData.id;
+                localStorage.setItem('userId', userId);
+
+                // Login sonrası gerçek username'i al
+                const userResult = await client.query({
+                    query: GET_USER,
+                    variables: { id: userId },
+                    fetchPolicy: 'no-cache', // Cache'te eski veri kalmasın
+                });
+
+                const username = userResult.data.getUser.username;
+                localStorage.setItem('username', username);
+
                 navigate('/');
                 setError('');
             } else {

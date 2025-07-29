@@ -44,7 +44,6 @@ const CreateUserForm = () => {
             <div className="createContainer">
                 {/* Gradient header ve logo */}
                 <div className="createHeader">
-                    <h1 className="logo">JMDB</h1>
                     <h2 className="title">Create Account</h2>
                 </div>
 

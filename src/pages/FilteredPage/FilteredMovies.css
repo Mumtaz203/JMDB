@@ -1,0 +1,89 @@
+.filtered-page {
+    background-color: #121212;
+    color: #fff;
+    min-height: 100vh;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+/* Üst başlık (mor degrade yazı) */
+.filtered-title {
+    font-size: 2rem;
+    background: linear-gradient(to right, #EAE9FF, #242097);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin: 0 0 30px 0;
+    text-align: center;
+}
+
+/* Film grid alanı */
+.filtered-movie-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Film kartları */
+.filtered-movie-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #1f1f1f;
+    border-radius: 12px;
+    padding: 10px;
+    width: 160px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filtered-movie-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(97, 218, 251, 0.6);
+}
+
+/* Placeholder poster */
+.poster-placeholder {
+    width: 140px;
+    height: 200px;
+    background-color: #333;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* Film bilgisi (isim, tarih, genre) */
+.movie-info h3 {
+    font-size: 1rem;
+    color: #9bb2d1;
+    text-align: center;
+    margin: 0 0 5px 0;
+}
+
+.movie-info p {
+    font-size: 0.85rem;
+    color: #ccc;
+    text-align: center;
+    margin: 0;
+}
+
+/* "No movies" yazısı */
+.no-movies {
+    font-size: 1.2rem;
+    color: #ccc;
+    margin-top: 40px;
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .filtered-movie-grid {
+        gap: 15px;
+    }
+    .filtered-movie-card {
+        width: 140px;
+    }
+    .poster-placeholder {
+        width: 120px;
+        height: 170px;
+    }
+}

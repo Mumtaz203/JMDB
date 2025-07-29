@@ -1,11 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-html {
+html, body {
   margin: 0;
   padding: 0;
-  background-color: #121212;
+  width: 100%;
+  height: 100%;
 }
+
 a {
   text-decoration: none;   /* Altı çizgiyi tamamen kaldır */
   color: inherit;          /* Bulunduğu yerin metin rengini kullan */
@@ -107,7 +109,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  background-color: hsl(var(--background));
+  background-color: #121212 !important;
   color: hsl(var(--foreground));
   font-feature-settings: "rlig" 1, "calt" 1;
   font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji",
