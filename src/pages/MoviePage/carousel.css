@@ -1,0 +1,73 @@
+.carousel-slide-in-left {
+    animation: slideInLeft 0.5s ease-out forwards;
+}
+
+.carousel-slide-out-left {
+    animation: slideOutLeft 0.5s ease-in forwards;
+}
+
+.carousel-slide-in-right {
+    animation: slideInRight 0.5s ease-out forwards;
+}
+
+.carousel-slide-out-right {
+    animation: slideOutRight 0.5s ease-in forwards;
+}
+
+/* Slide in/out animasyonları */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOutLeft {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(-20%); /* -100 yerine -20 ile kaybolma yumuşatıldı */
+        pointer-events: none;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(20%); /* 100 yerine 20 ile daha yumuşak kaybolma */
+        pointer-events: none;
+    }
+}
+
+/* Scrollbar gizle ve kaybolma engelle */
+.reviews-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.reviews-scroll {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow-x: auto; /* hidden yerine auto, içerik kaybolmasın */
+}

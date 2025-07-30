@@ -1,0 +1,227 @@
+.outer-frame {
+    background: linear-gradient(to right, #C5FDFF 0%, #3EAFB2 50%, #24565B 100%);
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+    height: auto;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+}
+
+.inner-frame {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Ekran daralınca satır kaydır */
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 80px;
+    padding: 10px 20px;
+    background: linear-gradient(to right, #242097 0%, #74C1C3 83%, #0C0A31 100%);
+    color: white;
+    border-radius: 10px;
+    box-sizing: border-box;
+    gap: 20px;
+    position: relative;
+    overflow: visible;
+}
+
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.logout-btn {
+    background: linear-gradient(to right, #242097, #0C0A31);
+    color: white;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.logout-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(36, 32, 151, 0.6);
+}
+
+/* Hamburger Menü */
+.menu-icon {
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+
+.search-bar {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    max-width: 500px;
+    min-width: 200px;
+    background-color: #B0D6D7;
+    border-radius: 8px;
+    padding: 5px 10px;
+    gap: 8px;
+}
+
+.search-bar input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: white;
+    padding: 5px;
+    outline: none;
+}
+.search-bar input::placeholder {
+    color: #ffffff;
+    opacity: 1;
+}
+
+.search-btn,
+.filter-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.6rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Sign In, Username ve Bookmark */
+.header-buttons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0; /* Sıkışmayı engeller */
+}
+
+.header-buttons .material-symbols-outlined {
+    font-size: 24px;
+}
+
+/* Bookmark hover */
+.bookmark-icon {
+    color: #0C0A31;
+}
+.bookmark-icon:hover {
+    color: white;
+}
+
+/* Logo */
+.logo-text {
+    font-size: 3rem;
+    font-weight: 900;
+    font-style: italic;
+    transform: rotate(-1.41deg);
+    background: #C5FDFF;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    line-height: 1;
+    margin-left: auto;
+    padding-right: 30px;
+    display: inline-block;/* solda boşluk */
+}
+
+/* Dropdown Menü */
+.menu-container {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-menu {
+    display: flex;
+    flex-direction: column;
+    background-color: #B0D6D7;
+    border-radius: 8px;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 180px;
+    padding: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    z-index: 999;
+}
+
+.dropdown-menu a {
+    color: black;
+    text-decoration: none;
+    padding: 8px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.dropdown-menu a:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+/* Filter Panel */
+.filter-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: flex-end;
+    z-index: 1000;
+}
+
+.filter-sidebar {
+    width: 300px;
+    height: 100%;
+    background: linear-gradient(to bottom, #EAE9FF 0%, #9BB2D1 21%, #4C7AA3 80%, #EAE9FF 100%);
+    box-shadow: -4px 0 10px rgba(0,0,0,0.5);
+    padding: 20px;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(100%);
+    color: #000;
+}
+.filter-sidebar.open {
+    transform: translateX(0);
+}
+
+@media (max-width: 768px) {
+    .outer-frame {
+        padding: 6px; /* Dış boşluk küçültüldü */
+    }
+
+    .inner-frame {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 6px; /* Satırlar arası boşluk */
+        padding: 8px 12px; /* İç boşluk*/
+        min-height: unset; /* Sabit yükseklik kaldırıldı */
+    }
+
+    .header-buttons {
+        order: -1;
+        justify-content: space-between;
+        display: flex;
+        width: 100%;
+        margin-bottom: 4px;
+    }
+
+    .logo-text {
+        order: -1;
+        font-size: 1.6rem;
+        align-self: center;
+        margin-left: 0;
+    }
+
+    .search-bar {
+        width: 100%;
+        max-width: none;
+    }
+}
+
+

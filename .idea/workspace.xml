@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0e42d117-31ba-4a85-9589-df56dea2679d" name="Changes" comment="Movie details page added, proxy settings changed.">
+      <change afterPath="$PROJECT_DIR$/public/images/AngryMan.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/LordOfTheRingsPoster.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/MovieImages/KungFuPanda/KungfuPanda4big.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/MovieImages/KungFuPanda/KungfuPanda4min.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/Schnidler.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/SlienceOfLambs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/Superman.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/TheGodFather.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/TheMatrix.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/CreateAccPage/CreateAcc.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/CreateAccPage/CreateAcc.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/CreateAccPage/CreateAcc.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/CreateAccPage/CreateAcc.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/HomePage/Home.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/HomePage/Home.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/HomePage/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/HomePage/Home.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/MoviePage/MovieDetails.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MoviePage/MovieDetails.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/MoviePage/MovieDetailsPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MoviePage/MovieDetailsPage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/MoviePage/ReviewsCarousel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MoviePage/ReviewsCarousel.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/MoviePage/carousel.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MoviePage/carousel.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignInPage/SignIn.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignInPage/SignIn.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignInPage/SignInPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignInPage/SignInPage.jsx" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JSX File" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;erkinck&quot;
+  }
+}</component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="1c5ffc47-573e-4d3f-9690-9650155d77c7" />
+  </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Mumtaz203/JMDB.git&quot;,
+    &quot;accountId&quot;: &quot;1c5ffc47-573e-4d3f-9690-9650155d77c7&quot;
+  }
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="30JgIz3VP7xYk1crV8vPoUXXP2Y" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "new-version-branch",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/User/WebstormProjects/JMDB/public",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2025.1.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\WebstormProjects\JMDB\node_modules" />
+      <recent name="C:\Users\User\WebstormProjects\JMDB\public" />
+      <recent name="C:\Users\User\WebstormProjects\JMDB" />
+      <recent name="C:\Users\User\WebstormProjects\JMDB\src" />
+      <recent name="C:\Users\User\WebstormProjects\JMDB\src\components" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\WebstormProjects\JMDB" />
+      <recent name="C:\Users\User\WebstormProjects\JMDB\src\pages" />
+      <recent name="C:\Users\User\WebstormProjects\JMDB\src\pages\SignInPage" />
+      <recent name="C:\Users\User\WebstormProjects\JMDB\src\pages\WatchlistPage" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-WS-251.27812.50" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0e42d117-31ba-4a85-9589-df56dea2679d" name="Changes" comment="" />
+      <created>1753351014137</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1753351014137</updated>
+      <workItem from="1753351015316" duration="99000" />
+      <workItem from="1753351132002" duration="2715000" />
+      <workItem from="1753354436735" duration="433000" />
+      <workItem from="1753354955774" duration="2357000" />
+      <workItem from="1753357345230" duration="707000" />
+      <workItem from="1753373171723" duration="18000" />
+      <workItem from="1753373743191" duration="240000" />
+      <workItem from="1753566891820" duration="2178000" />
+      <workItem from="1753569361953" duration="78000" />
+      <workItem from="1753571516399" duration="2245000" />
+      <workItem from="1753577773112" duration="2690000" />
+      <workItem from="1753615333023" duration="14000" />
+      <workItem from="1753621316530" duration="773000" />
+      <workItem from="1753625412565" duration="1293000" />
+      <workItem from="1753626740454" duration="960000" />
+      <workItem from="1753627727211" duration="867000" />
+      <workItem from="1753629055316" duration="5049000" />
+      <workItem from="1753650752126" duration="4146000" />
+      <workItem from="1753655010158" duration="3956000" />
+      <workItem from="1753694768706" duration="1849000" />
+      <workItem from="1753703965381" duration="17439000" />
+      <workItem from="1753736142150" duration="12044000" />
+      <workItem from="1753796332738" duration="1590000" />
+      <workItem from="1753798775706" duration="6482000" />
+      <workItem from="1753806493814" duration="1018000" />
+      <workItem from="1753807569799" duration="152000" />
+      <workItem from="1753807985082" duration="298000" />
+    </task>
+    <task id="LOCAL-00001" summary="Homepage and new Configurations added, Sign in and Create Account pages arranged">
+      <option name="closed" value="true" />
+      <created>1753652870536</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1753652870536</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Homepage and new Configurations added, Sign in and Create Account pages arranged">
+      <option name="closed" value="true" />
+      <created>1753655496078</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1753655496078</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Movie details page added, proxy settings changed.">
+      <option name="closed" value="true" />
+      <created>1753712590532</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1753712590532</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Homepage and new Configurations added, Sign in and Create Account pages arranged" />
+    <MESSAGE value="Movie details page added, proxy settings changed." />
+    <option name="LAST_COMMIT_MESSAGE" value="Movie details page added, proxy settings changed." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/../mumtazrepo/src/JMDB/pages/createAcc/CreateAcc.jsx</url>
+          <line>2</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

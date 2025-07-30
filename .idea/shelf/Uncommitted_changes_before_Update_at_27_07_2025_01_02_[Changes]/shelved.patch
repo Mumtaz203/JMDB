@@ -1,0 +1,22 @@
+Index: src/JMDB/pages/createAcc/apolloClient.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>// src/apolloClient.js\r\nimport { ApolloClient, InMemoryCache, HttpLink } from '@apollo/client';\r\n\r\nconst client = new ApolloClient({\r\n    link: new HttpLink({\r\n        uri: 'http://localhost:8080/graphql', // ← kendi backend endpoint’in neyse onu yaz\r\n    }),\r\n    cache: new InMemoryCache(),\r\n});\r\n\r\nexport default client;\r\n\r\n\r\n\r\n
+===================================================================
+diff --git a/src/JMDB/pages/createAcc/apolloClient.js b/src/JMDB/pages/createAcc/apolloClient.js
+--- a/src/JMDB/pages/createAcc/apolloClient.js	(revision 9f6c9555beeb9414f2aeb0cc28ef045a78f1f4fe)
++++ b/src/JMDB/pages/createAcc/apolloClient.js	(date 1753356600222)
+@@ -1,5 +1,5 @@
+ // src/apolloClient.js
+-import { ApolloClient, InMemoryCache, HttpLink } from '@apollo/client';
++/*import { ApolloClient, InMemoryCache, HttpLink } from '@apollo/client';
+ 
+ const client = new ApolloClient({
+     link: new HttpLink({
+@@ -10,5 +10,5 @@
+ 
+ export default client;
+ 
+-
++*/
+ 
