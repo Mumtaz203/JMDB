@@ -206,16 +206,13 @@ function MovieDetails() {
 
     const handleAddToWatchlist = async () => {
         const currentUserId = parseInt(localStorage.getItem('userId'));
+        const usernameInLocalStorage = localStorage.getItem('username');
 
-        if (currentUserId === null || isNaN(currentUserId)) {
+        if (!usernameInLocalStorage) {
             setMessage({ text: 'Please sign in to add the movie to your watchlist.', type: 'info' });
+            navigate('/signin');
             return;
         }
-        if (isNaN(movieId)) {
-            setMessage({ text: 'Invalid movie ID.', type: 'error' });
-            return;
-        }
-
         try {
             await addMovie({ variables: { userId: currentUserId, movieId: movieId } });
         } catch (error) {
@@ -307,7 +304,6 @@ function MovieDetails() {
                         <div className="flex flex-col gap-3 w-full max-w-[300px] lg:max-w-full mt-4">
                             <button className="flex items-center justify-center bg-[#3abdff] text-white px-4 py-2 rounded-lg font-semibold hover:bg-[#4eb0e6] transition-colors"
                                 onClick={handleAddToWatchlist}
-                                disabled={userId === null || isNaN(movieId) || addingToWatchlist}
                             >
                                 <img src="/images/icons/add-icon.svg" alt="Add to Watchlist" className="w-5 h-5 mr-2" />
                                 {addingToWatchlist ? 'Adding...' : 'Add to Watchlist'}
