@@ -84,16 +84,16 @@ const ADD_TO_WATCHLIST_MUTATION = gql`
 const CastCard = ({ actor }) => (
     <button
         type="button"
-        className="flex items-center p-2 rounded-lg hover:bg-gray-700 transition-colors cursor-pointer w-full text-left"
+        className="flex items-center px-0 py-2 rounded-lg hover:bg-gray-700 transition-colors cursor-pointer w-full text-left"
     >
         <img
             src={"/images/default-actor.jpg"}
             alt={actor.name}
-            className="w-10 h-10 rounded-full object-cover mr-3"
+            className="w-10 h-10 rounded-full object-cover mr-3 flex-shrink-0"
             onError={(e) => { e.target.onerror = null; e.target.src = "/images/default-actor.jpg"; }}
         />
-        <div>
-            <p className="text-white text-sm font-semibold">{actor.name}</p>
+        <div className="flex-grow min-w-0">
+            <p className="text-white text-sm font-semibold truncate">{actor.name}</p>
             <p className="text-gray-400 text-xs">Actor</p>
         </div>
     </button>
@@ -106,6 +106,7 @@ function MovieDetails() {
     const [showRatingModal, setShowRatingModal] = useState(false);
     const [userId, setUserId] = useState(null);
     const [message, setMessage] = useState({ text: '', type: '' });
+    const [showFullCast, setShowFullCast] = useState(false);
 
     useEffect(() => {
         const savedUserId = localStorage.getItem('userId');
@@ -168,7 +169,7 @@ function MovieDetails() {
     const handleRatingSubmit = async (rating, comment) => {
         const userId = parseInt(localStorage.getItem('userId'));
         if (!userId) {
-            alert("You must be signed in to leave a review.");
+            setMessage({ text: "You must be signed in to leave a review.", type: 'info' });
             navigate('/signin');
             return;
         }
@@ -222,6 +223,16 @@ function MovieDetails() {
         }
     };
 
+    const handleMarkAsWatched = () => {
+        const usernameInLocalStorage = localStorage.getItem('username');
+        if (!usernameInLocalStorage) {
+            setMessage({ text: "You must be signed in to mark a movie as watched.", type: 'info' });
+            navigate('/signin');
+            return;
+        }
+        setMessage({ text: 'Movie marked as watched!', type: 'success' });
+    };
+
     const handleCloseRatingModal = () => setShowRatingModal(false);
 
     const images = useMemo(() => {
@@ -251,6 +262,9 @@ function MovieDetails() {
     const reviews = reviewsData?.showAllReviewsInMovie || [];
     const directorName = directorData?.getDirector?.name;
     const year = movie.releaseDate ? new Date(movie.releaseDate).getFullYear() : 'N/A';
+
+    const displayedActors = showFullCast ? actors : actors.slice(0, 5);
+    const hasMoreActors = actors.length > 5;
 
     return (
         <div className="movie-details-page-container">
@@ -298,7 +312,10 @@ function MovieDetails() {
                                 <img src="/images/icons/add-icon.svg" alt="Add to Watchlist" className="w-5 h-5 mr-2" />
                                 {addingToWatchlist ? 'Adding...' : 'Add to Watchlist'}
                             </button>
-                            <button className="flex items-center justify-center bg-gray-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-gray-700 transition-colors" onClick={() => alert("Watched feature is currently unavailable.")}>
+                            {/* <<-- handleMarkAsWatched fonksiyonu buraya eklendi */}
+                            <button className="flex items-center justify-center bg-gray-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-gray-700 transition-colors"
+                                onClick={handleMarkAsWatched}
+                            >
                                 <img
                                     src="/images/icons/watched-icon.svg"
                                     alt="Mark as watched"
@@ -311,11 +328,13 @@ function MovieDetails() {
                                 />
                                 Mark as watched
                             </button>
+                            {/* -->> */}
                         </div>
                     </div>
 
                     <div className="flex-grow info-area">
-                        <h1 className="movie-title">{movie.title} ({year})</h1> 
+                        <h1 className="movie-title">{movie.title} ({year})</h1>
+                        <p className="text-gray-400 text-lg">{movie.duration || 'N/A'}</p>
                         <p className="movie-summary">{movie.description}</p>
                         <p className="movie-director"><strong>Director:</strong> {directorName || 'N/A'}</p>
                         <p className="movie-director"><strong>Stars:</strong> {actors.length > 0 ? actors.map(a => a.name).join(', ') : 'N/A'}</p>
@@ -345,8 +364,8 @@ function MovieDetails() {
                     <aside className="cast-area">
                         <h3 className="text-xl mb-3">Cast</h3>
                         <ul className="space-y-2 text-gray-200">
-                            {actors.length > 0 ? (
-                                actors.map((actor, index) => (
+                            {displayedActors.length > 0 ? (
+                                displayedActors.map((actor, index) => (
                                     <li key={index}>
                                         <CastCard actor={actor} />
                                     </li>
@@ -355,9 +374,16 @@ function MovieDetails() {
                                 <li>No cast information available.</li>
                             )}
                         </ul>
-                        <button className="see-more" onClick={() => console.log("See More Cast clicked")}>
-                            See More
-                        </button>
+                        {hasMoreActors && !showFullCast && (
+                            <button className="see-more" onClick={() => setShowFullCast(true)}>
+                                See More
+                            </button>
+                        )}
+                        {showFullCast && (
+                            <button className="see-more" onClick={() => setShowFullCast(false)}>
+                                Show Less
+                            </button>
+                        )}
                     </aside>
                 </div>
 
