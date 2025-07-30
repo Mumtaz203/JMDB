@@ -1,9 +1,9 @@
 import "./Home.css";
 import { Link } from "react-router-dom";
 import { gql, useQuery } from "@apollo/client";
-import { movieImages } from "../../movieAssets"; // Poster ve banner eşleşmeleri
+import { movieImages } from "../../movieAssets";
 
-// Haftanın favori filmi (örnek: id:2)
+// Haftanın favori filmi
 const GET_MOVIE = gql`
     query GetMovie($id: Int!) {
         getMovie(id: $id) {
@@ -14,7 +14,6 @@ const GET_MOVIE = gql`
     }
 `;
 
-// Top Rated filmler (en yüksek puandan düşük puana)
 const GET_TOP_RATED = gql`
     query {
         sortMovieByBetterReviewPoint {
@@ -52,6 +51,10 @@ export default function Home() {
 
     const topRatedMovies = topRatedData?.sortMovieByBetterReviewPoint || [];
 
+    // Filtreleme
+    const topRatedUnder15 = topRatedMovies.filter((movie) => movie.id < 15);
+    const topRatedAboveOrEqual15 = topRatedMovies.filter((movie) => movie.id >= 15);
+
     return (
         <div className="home-container">
             {/* Highlight Section */}
@@ -61,7 +64,6 @@ export default function Home() {
                     <Link to={`/movie/${highlightMovie?.id || ""}`} className="static-heading">
                         FAN FAVOURITE THIS WEEK
                     </Link>
-
                     <div className="movie-info">
                         <div
                             className="mini-poster"
@@ -83,8 +85,6 @@ export default function Home() {
                         </div>
                     </div>
                 </div>
-
-                {/* Sağ banner */}
                 <div className="highlight-right">
                     <div
                         className="highlight-image"
@@ -97,25 +97,37 @@ export default function Home() {
                 </div>
             </div>
 
-            {/* What is Next (şimdilik placeholder) */}
+            {/* What is Next */}
             <h2 className="section-title-home">WHAT IS NEXT?</h2>
             <div className="carousel-container">
                 <button className="carousel-btn left" onClick={() => scroll("next-carousel", "left")}>
                     &lt;
                 </button>
                 <div id="next-carousel" className="carousel">
-                    {Array(18)
-                        .fill(null)
-                        .map((_, i) => (
-                            <div key={i} className="placeholder-box"></div>
-                        ))}
+                    {loadingTopRated
+                        ? Array(10).fill(null).map((_, i) => <div key={i} className="placeholder-box"></div>)
+                        : topRatedAboveOrEqual15.map((movie) => {
+                            const poster = movieImages[movie.id]?.poster || "";
+                            return (
+                                <Link
+                                    to={`/movie/${movie.id}`}
+                                    key={movie.id}
+                                    className="placeholder-box"
+                                    style={{
+                                        backgroundImage: `url(${poster})`,
+                                        backgroundSize: "cover",
+                                        backgroundPosition: "center",
+                                    }}
+                                ></Link>
+                            );
+                        })}
                 </div>
                 <button className="carousel-btn right" onClick={() => scroll("next-carousel", "right")}>
                     &gt;
                 </button>
             </div>
 
-            {/* Top Rated Movies (dinamik, poster tabanlı) */}
+            {/* Top Rated Movies */}
             <h2 className="section-title-home">TOP RATED MOVIES</h2>
             <div className="carousel-container">
                 <button className="carousel-btn left" onClick={() => scroll("top-carousel", "left")}>
@@ -123,10 +135,8 @@ export default function Home() {
                 </button>
                 <div id="top-carousel" className="carousel">
                     {loadingTopRated
-                        ? Array(10)
-                            .fill(null)
-                            .map((_, i) => <div key={i} className="placeholder-box"></div>)
-                        : topRatedMovies.map((movie) => {
+                        ? Array(10).fill(null).map((_, i) => <div key={i} className="placeholder-box"></div>)
+                        : topRatedUnder15.map((movie) => {
                             const poster = movieImages[movie.id]?.poster || "";
                             return (
                                 <Link
