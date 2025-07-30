@@ -1,4 +1,3 @@
-// src/components/SmallMovieCard.jsx
 import React from 'react';
 import { Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -6,6 +5,7 @@ import { Link } from 'react-router-dom';
 const SmallMovieCard = ({ movie }) => {
   return (
     <Link to={`/movie/${movie.id}`} className="block">
+
       <div className="p-2 rounded-lg shadow-md flex flex-col items-center text-center w-[150px] flex-shrink-0 relative">
         <img
           src="/images/icons/add-circle.svg"
@@ -14,13 +14,16 @@ const SmallMovieCard = ({ movie }) => {
           onError={(e) => { e.target.onerror = null; e.target.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="; }}
         />
 
-        <img
-          src={movie.imageUrl}
-          alt={movie.title}
-          className="w-full h-auto rounded-lg object-cover mb-2"
-          onError={(e) => { e.target.onerror = null; e.target.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="; }}
-        />
-        <h4 className="text-sm font-semibold text-white truncate w-full">{movie.title}</h4>
+        <div className="w-full h-60 overflow-hidden rounded-lg mb-2">
+          <img
+            src={movie.imageUrl}
+            alt={movie.title}
+            className="w-full h-full object-cover"
+            onError={(e) => { e.target.onerror = null; e.target.src = "/images/default-poster.jpg"; }}
+          />
+        </div>
+        
+        <h4 className="text-sm font-semibold text-white truncate w-full mt-auto">{movie.title}</h4>
 
         <div className="flex items-center justify-between w-full mt-1 px-1">
           <div className="flex items-center text-yellow-400 text-xs">

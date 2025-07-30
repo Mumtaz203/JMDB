@@ -98,26 +98,6 @@ export default function Filter() {
                                 />
                                 All Movies
                             </label>
-                            <label>
-                                <input
-                                    type="radio"
-                                    name="show"
-                                    value="unseen"
-                                    checked={showOption === "unseen"}
-                                    onChange={() => setShowOption("unseen")}
-                                />
-                                Movies I Haven't Seen
-                            </label>
-                            <label>
-                                <input
-                                    type="radio"
-                                    name="show"
-                                    value="seen"
-                                    checked={showOption === "seen"}
-                                    onChange={() => setShowOption("seen")}
-                                />
-                                Movies I Have Seen
-                            </label>
                         </div>
 
                         {/* Release Date */}

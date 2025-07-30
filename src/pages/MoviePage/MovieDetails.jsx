@@ -334,7 +334,6 @@ function MovieDetails() {
 
                     <div className="flex-grow info-area">
                         <h1 className="movie-title">{movie.title} ({year})</h1>
-                        <p className="text-gray-400 text-lg">{movie.duration || 'N/A'}</p>
                         <p className="movie-summary">{movie.description}</p>
                         <p className="movie-director"><strong>Director:</strong> {directorName || 'N/A'}</p>
                         <p className="movie-director"><strong>Stars:</strong> {actors.length > 0 ? actors.map(a => a.name).join(', ') : 'N/A'}</p>

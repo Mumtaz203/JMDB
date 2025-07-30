@@ -26,7 +26,9 @@ const ExploreMoreWrapperSection = () => {
   const scrollRef = useRef(null);
 
   const { loading, error, data } = useQuery(GET_TOP_TEN_MOVIES_QUERY);
-  const topMovies = data?.sortMovieByBetterReviewPoint || [];
+  const allTopMovies = data?.sortMovieByBetterReviewPoint || [];
+
+  const topTenMovies = allTopMovies.slice(0, 10);
 
   const scrollLeft = () => {
     if (scrollRef.current) {
@@ -53,7 +55,7 @@ const ExploreMoreWrapperSection = () => {
     <div className="p-6 relative">
       <h2 className="text-xl font-bold text-white mb-4">Top 10 this week</h2>
       
-      <button 
+      <button
         onClick={scrollLeft}
         className="absolute left-0 top-1/2 -translate-y-1/2 bg-gray-800 bg-opacity-75 text-white p-2 rounded-full z-20 hover:bg-gray-700 focus:outline-none hidden md:block"
         aria-label="Scroll left"
@@ -63,16 +65,16 @@ const ExploreMoreWrapperSection = () => {
         </svg>
       </button>
 
-      <div 
-        ref={scrollRef} 
+      <div
+        ref={scrollRef}
         className="flex flex-nowrap overflow-x-auto gap-4 py-2 hide-scrollbar scroll-smooth"
       >
-        {topMovies.map(movie => (
+        {topTenMovies.map(movie => (
           <MovieCardWithRatingAndImage key={movie.id} movie={movie} />
         ))}
       </div>
 
-      <button 
+      <button
         onClick={scrollRight}
         className="absolute right-0 top-1/2 -translate-y-1/2 bg-gray-800 bg-opacity-75 text-white p-2 rounded-full z-20 hover:bg-gray-700 focus:outline-none hidden md:block"
         aria-label="Scroll right"
@@ -104,12 +106,12 @@ const MovieCardWithRatingAndImage = ({ movie }) => {
     }
 
     return (
-        <SmallMovieCard 
-            movie={{ 
-                ...movie, 
-                imageUrl: imageUrl, 
-                rating: rating 
-            }} 
+        <SmallMovieCard
+            movie={{
+                ...movie,
+                imageUrl: imageUrl,
+                rating: rating
+            }}
         />
     );
 };
