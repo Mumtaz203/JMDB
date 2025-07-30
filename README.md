@@ -26,8 +26,8 @@ JMDB is a movie rating and information platform where users can:
 
 ##  Project Repositories
 
-- Frontend: https://github.com/Mumtaz203/JMDB](https://github.com/Mumtaz203/JMDB
-- Backend: https://github.com/Mumtaz203/jmdb-backend](https://github.com/Mumtaz203/jmdb-backend
+    - Frontend: https://github.com/Mumtaz203/JMDB
+    - Backend: https://github.com/Mumtaz203/jmdb-backend
 
 ##  Backend Setup
 
